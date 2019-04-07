@@ -1,16 +1,48 @@
 // const fs = require("fs");
 const chalk = require("chalk");
+const yargs = require("yargs");
 
 // fs.writeFileSync("notes.txt", "File created by node JS");
 // fs.appendFileSync("notes.txt", "This line is added by appendFileSync");
-console.log(chalk.red.bgYellow.bold("Arkadiusz Szymczak & Lena Szymczak"));
-console.log(chalk.green.bgBlue.bold("Hello in Node Course"));
+// console.log(chalk.red.bgYellow.bold("Arkadiusz Szymczak & Lena Szymczak"));
+// console.log(chalk.green.bgBlue.bold("Hello in Node Course"));
+
 console.log(process.argv);
+console.log(yargs.argv);
 
-const command = process.argv[2];
+//useful nodes to have: add, remove, read, list
+//add
+yargs.command({
+  command: "add",
+  describe: "Add a new note",
+  handler: function() {
+    console.log("adding new note");
+  }
+});
 
-if (command === "hello") {
-  console.log("Hello my friend, your laptop greets you!");
-} else if (command === "name") {
-  console.log("My name is Asus r510j");
-}
+//remove
+yargs.command({
+  command: "remove",
+  describe: "Remove a note",
+  handler: function() {
+    console.log("removing note");
+  }
+});
+
+//read
+yargs.command({
+  command: "read",
+  describe: "Read a note",
+  handler: function() {
+    console.log("reading note");
+  }
+});
+
+//list
+yargs.command({
+  command: "list",
+  describe: "Listing a note",
+  handler: function() {
+    console.log("listing note");
+  }
+});
